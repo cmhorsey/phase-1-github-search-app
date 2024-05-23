@@ -11,3 +11,8 @@
 ul {
   list-style: none;
 }
+
+#profile-pic {
+  width: 200px;
+  height: 200ppx;
+}
