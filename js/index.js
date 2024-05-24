@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-function createUserCard(users) {
+  function createUserCard(users) {
     users.items.forEach(item => {   
       let ul = document.getElementById('user-list')
       let displayName = document.createElement('li')
@@ -35,10 +35,8 @@ function createUserCard(users) {
       <a href="${item.html_url}">Check me out</a>
       `
       profileLink.appendChild(btn)
-
       img.src = item.avatar_url
       displayName.innerText = item.login
-
       img.setAttribute('id', 'profile-pic')
 
       profilePic.appendChild(img)
@@ -47,7 +45,6 @@ function createUserCard(users) {
       ul.appendChild(profileLink)
 
       img.addEventListener('click', (e) => {
-        // console.log(item.login)
         fetch(`https://api.github.com/users/${item.login}/repos`, {
           headers:
               {
@@ -68,13 +65,11 @@ function createUserCard(users) {
 
             reposList.appendChild(repoBox)
             repoBox.appendChild(repoName)
-            repoBox.appendChild(repoUrl)
-            
+            repoBox.appendChild(repoUrl)           
           })
         })   
+      })
     })
-  })
-} 
-
-handleForm()  
+  } 
+  handleForm()  
 })
